@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dance Registration Form</title>
+
+        <style>
+            body {
+                font-family: "Lucida Sans", "Lucida Sans Regular",
+                    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+                    sans-serif;
+                padding: 20px;
+                background-color: #f4f4f4;
+                display: flex;
+                justify-content: center;
+            }
+
+            form {
+                border: 1px solid #ccc;
+                padding: 40px;
+                border-radius: 10px;
+
+                max-width: 400px;
+                width: 100%;
+                background-color: #fff;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                margin: 8px 0;
+                padding: 8px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+            label {
+                margin-top: 10px;
+                display: block;
+            }
+            .gender {
+                display: flex;
+                gap: 10px;
+            }
+            button {
+                padding: 10px;
+                width: 100%;
+                background: teal;
+                color: white;
+                border: none;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="resgiter.php" method="post">
+            <h2 class="title">Register</h2>
+            <label>
+                Username:
+                <input type="text" name="username" id="username" required
+            /></label>
+            <label
+                >Password: <input type="password" id="pass" required
+            /></label>
+            <label
+                >Confirm Password: <input type="password" name="password" id=""
+            /></label>
+            <label>
+                Email: <input type="email" id="email" name="email" required
+            /></label>
+            <label
+                >Mobile Number: <input type="text" name="mobile" id="mobile"
+            /></label>
+            <label> Gender: </label>
+            <div class="gender">
+                <label
+                    ><input
+                        type="radio"
+                        name="gender"
+                        value="Male"
+                        required
+                    />Male</label
+                >
+                <label
+                    ><input
+                        type="radio"
+                        name="gender"
+                        value="Female"
+                    />Female</label
+                >
+                <label
+                    ><input
+                        type="radio"
+                        name="gender"
+                        value="Other"
+                    />Other</label
+                >
+            </div>
+            <label>DOB: <input type="date" name="dob" required /></label>
+            <label
+                >Address: <textarea name="address" required></textarea>
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+
+        <script>
+            function validateForm() {
+                email = document.getElementById("email").value;
+                mobile = document.getElementById("mobile").value;
+                pass = document.getElementById("pass").value;
+                cpass = document.getElementById("cpass").value;
+
+                if (!/^\S+@\S+\.\S+$/.test(email)) {
+                    alert("Invalid email format");
+                    return false;
+                }
+                if (!/^\d{10}$/.test(mobile)) {
+                    alert("Mobile must be 10 digits");
+                    return false;
+                }
+                if (pass !== cpass) {
+                    alert("Passwords do not match");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </body>
+</html>
